@@ -1,0 +1,69 @@
+# PySAG-UdeC/pyproject.toml
+
+[build-system]
+# Especifica las herramientas necesarias para construir tu paquete
+requires = ["setuptools>=61.0", "wheel"] # setuptools es el constructor más común, wheel para crear .whl
+build-backend = "setuptools.build_meta"  # Indica que se usará setuptools para construir
+
+[project]
+# --- Metadatos principales del proyecto ---
+name = "PySAG-UdeC"                 # Nombre que se usará en PyPI (pip install PySAG-UdeC)
+version = "0.0.1"               # Versión inicial (la definimos también en __init__.py)
+authors = [
+  { name="John Sebastián Galindo", email="johnsgalindo@ucundinamarca.edu.co" }, 
+]
+description = "Una librería simple de Algoritmos Genéticos en Python Para la actividad final de la matería Algoritmos Geneticos en la Universidad de Cundinamarca." 
+readme = "README.md"            # Archivo que contiene la descripción larga
+requires-python = ">=3.8"       # Versión mínima de Python requerida
+
+# --- Clasificadores: Ayudan a PyPI a categorizar tu paquete ---
+classifiers = [
+    "Development Status :: 3 - Alpha", # Estado del proyecto (Alpha, Beta, Production/Stable)
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12", 
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# --- Dependencias: Paquetes que tu librería NECESITA para funcionar ---
+dependencies = [
+    "numpy>=1.21",
+]
+
+# --- Dependencias Opcionales: Para funcionalidades extra o desarrollo ---
+[project.optional-dependencies]
+# Dependencias para graficar resultados
+plot = ["matplotlib>=3.4"]
+# Dependencias para desarrollo (testing, linting, formatting, building)
+dev = [
+    "PySAG-UdeC[plot]", # Incluye las dependencias de 'plot' al instalar 'dev'
+    "pytest>=7.0",  # Framework de testing
+    "flake8>=5.0",  # Linter (PEP 8 + errores básicos)
+    "black>=23.0",  # Formateador de código
+    "isort>=5.10",  # Ordenador de imports
+    "build>=0.10",  # Herramienta para construir el paquete
+    "twine>=4.0",   # Herramienta para subir el paquete a PyPI
+]
+
+# --- URLs del Proyecto ---
+[project.urls]
+"Homepage" = "https://github.com/SebasGalindo/PySAG-UdeC" 
+"Bug Tracker" = "https://github.com/SebasGalindo/PySAG-UdeC/issues" 
+
+# --- Configuración de Herramientas (Ejemplos) ---
+[tool.isort]
+profile = "black" # Asegura compatibilidad entre isort y black
+
+# [tool.black] # Black usualmente no necesita configuración
+# line-length = 88 # Si quisieras cambiar la longitud de línea (Black usa 88 por defecto)
+
+# [tool.flake8] # Flake8 se configura a menudo en setup.cfg o .flake8, pero puede ir aquí
+# max-line-length = 88
+# extend-ignore = "E203" # Ejemplo de ignorar un error específico (conflicto común con black)
