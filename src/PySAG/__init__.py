@@ -2,7 +2,9 @@
 """
 PySAG: Una librería simple de Algoritmos Genéticos en Python.
 """
+# Importar los módulos de operadores para que sean accesibles
+# como PySAG.selection, PySAG.crossover, etc.
+from . import crossover, initialization, mutation, selection
 from .ga import GA
-from . import operators # Para poder hacer PySAG.operators.mi_funcion
 
-__version__ = "0.0.1" # Empezamos con una versión inicial
+__version__ = "0.0.1"  # Empezamos con una versión inicial

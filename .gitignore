@@ -1,0 +1,24 @@
+# Virtual environment
+venv/
+.venv/
+env/
+ENV/
+.env
+
+# Compiled Python Files
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution and Installation Folders
+.eggs
+*.egg-info
+*.egg
+build/
+dist/
+
+# Configuration IDE files
+.vscode/
+
+
