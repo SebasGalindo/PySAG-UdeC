@@ -1,3 +1,22 @@
+"""
+Modulo de selección.
+
+Este módulo proporciona varios métodos de selección que pueden ser utilizados
+en algoritmos genéticos.
+Todas las funciones están optimizadas con Numba para mejorar el rendimiento.
+
+Posibles funciones de selección:
+    - selection_roulette_wheel:
+        Selección por ruleta. Los individuos son seleccionados con una probabilidad
+        proporcional a su fitness. Asume que todos los fitness son positivos.
+    - selection_tournament:
+        Selección por torneo. Se eligen 'tournament_size' individuos al azar,
+        y el mejor de ellos se convierte en padre. Se repite 'num_parents' veces.
+    - selection_rank:
+        Selección por Rango. Los individuos son ordenados por fitness y se les asigna
+        un rango. La probabilidad de selección es proporcional a su rango.
+"""
+
 import random
 
 import numpy as np
@@ -5,8 +24,22 @@ import numpy as np
 
 def selection_roulette_wheel(population, fitness_values, num_parents, **kwargs):
     """
-    Selección por ruleta. Los individuos son seleccionados con una probabilidad
-    proporcional a su fitness. Asume que todos los fitness son positivos.
+    Selección por ruleta.
+
+    Los individuos son seleccionados con una probabilidad proporcional a su fitness.
+    Se asume que todos los fitness son positivos.
+
+    Args:
+        population: Población de individuos.
+        fitness_values: Valores de fitness de cada individuo.
+        num_parents: Número de padres a seleccionar.
+        **kwargs: Argumentos adicionales (no utilizados en esta función).
+
+    Returns:
+        Una lista de padres seleccionados.
+
+    Raises:
+        ValueError: Si la población está vacía.
     """
     fitness_sum = np.sum(fitness_values)
     if fitness_sum == 0:
@@ -25,8 +58,23 @@ def selection_tournament(
     population, fitness_values, num_parents, tournament_size=3, **kwargs
 ):
     """
-    Selección por torneo. Se eligen 'tournament_size' individuos al azar,
+    Selección por torneo.
+
+    Se eligen 'tournament_size' individuos al azar,
     y el mejor de ellos se convierte en padre. Se repite 'num_parents' veces.
+
+    Args:
+        population: Población de individuos.
+        fitness_values: Valores de fitness de cada individuo.
+        num_parents: Número de padres a seleccionar.
+        tournament_size: Tamaño del torneo (número de individuos a evaluar).
+        **kwargs: Argumentos adicionales (no utilizados en esta función).
+
+    Returns:
+        Una lista de padres seleccionados.
+
+    Raises:
+        ValueError: Si la población está vacía.
     """
     selected_parents = []
     population_indices = list(range(len(population)))
@@ -51,8 +99,22 @@ def selection_tournament(
 
 def selection_rank(population, fitness_values, num_parents, **kwargs):
     """
-    Selección por Rango. Los individuos son ordenados por fitness y se les asigna
-    un rango. La probabilidad de selección es proporcional a su rango.
+    Selección por Rango.
+
+    Los individuos son ordenados por fitness y se les asigna un rango.
+    La probabilidad de selección es proporcional a su rango.
+
+    Args:
+        population: Población de individuos.
+        fitness_values: Valores de fitness de cada individuo.
+        num_parents: Número de padres a seleccionar.
+        **kwargs: Argumentos adicionales (no utilizados en esta función).
+
+    Returns:
+        Una lista de padres seleccionados.
+
+    Raises:
+        ValueError: Si la población está vacía.
     """
     sorted_indices = np.argsort(fitness_values)
     ranks = np.empty_like(sorted_indices)

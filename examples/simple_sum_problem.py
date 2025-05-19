@@ -1,4 +1,5 @@
-# examples/simple_sum_problem.py
+"""Ejemplo de Algoritmo Genético para resolver el problema de la suma."""
+
 import numpy as np
 
 # Importar los módulos de operadores
@@ -15,6 +16,7 @@ NUM_GENES = 5
 
 
 def fitness_function(individual):
+    """Función de fitness que maximiza la suma de los genes."""
     return np.sum(individual)
 
 
