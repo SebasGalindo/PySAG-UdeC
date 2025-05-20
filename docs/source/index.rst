@@ -3,15 +3,30 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-PySAG-UdeC documentation
-========================
+Bienvenido a la Documentación de PySAG-UdeC
+===========================================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
-
+PySAG-UdeC es una librería simple y educativa de Algoritmos Genéticos en Python,
+desarrollada por John Sebastián Galindo Hernández y Miguel Ángel Moreno Beltrán.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Guía de Usuario:
 
+   readme
+   installation
+   getting_started
+   examples
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Referencia de la API:
+
+   api/pysag
+
+Indices y tablas
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

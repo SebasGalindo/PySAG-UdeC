@@ -46,6 +46,7 @@ def _validate_parents(
         TypeValidationError: Si los padres no son arrays de NumPy.
         ParameterError: Si los padres no tienen la misma forma, no son 1D,
                         o su longitud es menor que `min_length`.
+
     """
     validate_parameter(parent1, "parent1", np.ndarray)  # type: ignore
     validate_parameter(parent2, "parent2", np.ndarray)  # type: ignore
@@ -84,6 +85,7 @@ def _crossover_single_point_impl(
 
     Returns:
         Una tupla (child1, child2) con los dos descendientes.
+
     """
     point = np.random.randint(1, len(p1))  # Punto de cruce entre 1 y len-1
 
@@ -186,6 +188,7 @@ def _crossover_order_ox1_impl(
 
     Returns:
         Una tupla (child1, child2) con los dos descendientes.
+
     """
     size = len(p1)
     child1 = np.empty_like(p1)
@@ -264,6 +267,7 @@ def crossover_single_point(
         True
         >>> (c1 == p1).all() # Puede ser False si ocurre cruce
         False
+
     """
     _validate_parents(parent1, parent2, min_length=1)
     if len(parent1) < 2:
@@ -371,6 +375,7 @@ def crossover_uniform(
         >>> c1, c2 = crossover_uniform(p1, p2, mix_probability=0.5)
         >>> c1.shape == p1.shape and c2.shape == p2.shape
         True
+
     """
     _validate_parents(parent1, parent2, min_length=1)
     validate_parameter(
@@ -447,6 +452,7 @@ def crossover_arithmetic(
         )
         >>> c_int1 # Resultado es flotante
         array([3.4, 5.2, 7. ])
+
     """
     _validate_parents(parent1, parent2, min_length=0)
 
@@ -527,6 +533,7 @@ def crossover_order_ox1(
         True
         >>> np.array_equal(np.sort(c2), np.sort(p2))
         True
+
     """
     _validate_parents(parent1, parent2, min_length=1)
 

@@ -15,6 +15,7 @@ class PySAGError(Exception):
     Args:
         message: Mensaje descriptivo del error.
         details: Información adicional sobre el error.
+
     """
 
     def __init__(self, message: str, details: Optional[Dict[str, Any]] = None):
@@ -224,6 +225,7 @@ def validate_parameter(
     Raises:
         TypeValidationError: Si el valor no cumple con el tipo esperado.
         RangeError: Si el valor está fuera del rango permitido.
+
     """
     raw_expected_types = (
         [expected_type] if not isinstance(expected_type, list) else expected_type

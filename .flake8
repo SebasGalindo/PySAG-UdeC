@@ -10,7 +10,8 @@ exclude =
     build,
     dist,
     docs/_build,
-    examples/notebooks
+    examples/notebooks,
+    docs/source/conf.py
 
 per-file-ignores =
     __init__.py:F401
