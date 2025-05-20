@@ -5,8 +5,9 @@ Una librería simple y educativa de Algoritmos Genéticos en Python.
 
 ## Desarrolladores
 
-John Sebastián Galindo Hernández
-Miguel Ángel Moreno Beltrán
+**John Sebastián Galindo Hernández**
+
+**Miguel Ángel Moreno Beltrán**
 
 ## Estado del Proyecto
 

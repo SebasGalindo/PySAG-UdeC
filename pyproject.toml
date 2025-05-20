@@ -8,7 +8,7 @@ build-backend = "setuptools.build_meta"  # Indica que se usará setuptools para 
 [project]
 # --- Metadatos principales del proyecto ---
 name = "PySAG-UdeC"                 # Nombre que se usará en PyPI (pip install PySAG-UdeC)
-version = "0.0.2"               # Versión inicial (la definimos también en __init__.py)
+version = "0.1.0"               # Versión inicial (la definimos también en __init__.py)
 authors = [
   { name="John Sebastián Galindo", email="johnsgalindo@ucundinamarca.edu.co" }, 
 ]
